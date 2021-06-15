@@ -1,25 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-light">
+     <div className="container-fluid bg-dark text-white text-center">
+        <img src="https://firebasestorage.googleapis.com/v0/b/cricscore-c2064.appspot.com/o/CricScorelogo.png?alt=media&token=5ed67ca7-7aff-4455-8dc3-3a3850b1291e" alt="CricScore" height="100px"></img>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
