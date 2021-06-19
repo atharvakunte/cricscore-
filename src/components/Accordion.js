@@ -1,14 +1,12 @@
 import React from 'react';
 
-export const Accordion = ({
-    homeTeam,
-    awayTeam,
-    homeTeamSheet,
-    awayTeamSheet,
-    scorecard,
-    stats
-}) => {
-
+export const Accordion = ({data}) => {
+const stats = ""
+const scorecard = ""
+const homeTeam = ""
+const awayTeam = ""
+const homeTeamSheet = ""
+const awayTeamSheet = ""
 
 
     return(

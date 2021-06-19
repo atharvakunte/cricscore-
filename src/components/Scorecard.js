@@ -1,21 +1,59 @@
 import React from 'react'
 
-export const Scorecard = ({
-    toss,
-    homeTeam,
-    awayTeam,
-    homeScores,
-    awayScores,
-    status
-}) => {
+export const Scorecard = ({data}) => {
 
+    console.log(data);
+const toss = data?data.live_details.match_summary.toss:"";
+const homeTeam = data?data.fixture.home.name:"";
+const awayTeam = data?data.fixture.away.name:"";
+const homeScores = data?data.live_details.match_summary.home_scores:"";
+const awayScores = data?data.live_details.match_summary.home_scores:"";
+const last_18_balls = data?data.live_details.stats.last_18_balls:"";
+const status = data?data.live_details.match_summary.status:"";
+
+const balls = (ball) => {
+    var runs = ball.runs
+    var text = ""
+    var style = "badge rounded-pill bg-light"
+
+    if (ball.isDismissal){
+        text = 'W'
+        style = 'badge rounded-pill bg-danger'
+    }
+    if (ball.isWide) {
+        text = 'WD'
+        style = 'badge rounded-pill bg-warning'
+    }
+    if (ball.isNoBall) {
+        text = 'NB'
+        style = 'badge rounded-pill bg-warning'
+    }
+    if (ball.isBye) {
+        text = 'B'
+    }
+    if (ball.isLegBye) {
+        text = 'LB'
+    }
+    if (ball.isBoundry) {
+        if (runs == 4) {
+            style ="badge rounded-pill bg-primary"
+        }
+        else{
+            style ="badge rounded-pill bg-success"
+        }
+    }
+
+    return(
+        <span className={style}>{runs}{text}</span>
+    )
+}
 
     return (
-        <div className="container mt-5">
+        <div>
             <div className=" card " >
 
                 <div className="card-header text-center">
-                    Toss - India
+                    {toss}
                 </div>
 
                 <div className="row">
@@ -42,7 +80,12 @@ export const Scorecard = ({
                 <div className="card text-center">
 
                     <div className="card-body">
-                        <h4 className="card-title">{last_18_balls}</h4>
+                        <h4 className="card-title">
+                        
+                            {last_18_balls.map((ball, index) => {
+                                balls(ball)
+                            })}
+                        </h4>
                     </div>
                     <div className="card-footer text-muted">
                     <h5 className="card-text">{status}</h5>
