@@ -1,5 +1,3 @@
-import React from "react";
-
 
 export const getMatches = () => {
     var myCurrentDate = new Date();
