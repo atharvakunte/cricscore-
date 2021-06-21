@@ -10,11 +10,11 @@ export const getMatches = () => {
     }
     var date = myCurrentDate.getFullYear() + '-' + month + '-' + myCurrentDate.getDate()
 
-    return fetch(`https://cricket-live-data.p.rapidapi.com/fixtures-by-date/2021-06-16`, {
+    return fetch(`https://cricket-live-data.p.rapidapi.com/fixtures-by-date/${date}`, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "bcf7f185f6mshccbbeb13565b63bp1d1864jsnfe9471784122",
-            "x-rapidapi-host": "cricket-live-data.p.rapidapi.com"
+            "x-rapidapi-key": "98c597f677msh0740186b754d713p19ce9ejsn024a29b91081",
+		    "x-rapidapi-host": "cricket-live-data.p.rapidapi.com"
         }
     })
     .then(response => {
@@ -29,11 +29,12 @@ export const getMatchScore = (matchID) => {
     return fetch(`https://cricket-live-data.p.rapidapi.com/match/${matchID}`, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "bcf7f185f6mshccbbeb13565b63bp1d1864jsnfe9471784122",
-            "x-rapidapi-host": "cricket-live-data.p.rapidapi.com"
+            "x-rapidapi-key": "98c597f677msh0740186b754d713p19ce9ejsn024a29b91081",
+		    "x-rapidapi-host": "cricket-live-data.p.rapidapi.com"
         }
     })
     .then(response => {
+        // console.log(response);
         return response.json();
     })
     .catch(err => {

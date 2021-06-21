@@ -35,7 +35,7 @@ const balls = (ball) => {
         text = 'LB'
     }
     if (ball.isBoundry) {
-        if (runs == 4) {
+        if (runs === '4') {
             style ="badge rounded-pill bg-primary"
         }
         else{
