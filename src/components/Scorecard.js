@@ -1,8 +1,7 @@
 import React from 'react'
 
 export const Scorecard = ({data}) => {
-
-    console.log(data);
+ console.log(data);
 const toss = data?data.live_details.match_summary.toss:"";
 const homeTeam = data?data.fixture.home.name:"";
 const awayTeam = data?data.fixture.away.name:"";

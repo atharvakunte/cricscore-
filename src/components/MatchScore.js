@@ -1,19 +1,23 @@
-import React, {useState, useEffect} from "react";
-import { useParams } from "react-router-dom";
+import React, {Component, useState, useEffect} from "react";
+import { useParams, withRouter } from "react-router-dom";
 import { getMatchScore } from "./apicalls";
 import {Scorecard} from "./Scorecard";
 import {Accordion} from "./Accordion";
 
 
-export const MatchScore = () => {
+export const MatchScore  = async () => {
   let {matchId} = useParams();
-  
-  const [score, setScore] = useState({})
 
-  getMatchScore(matchId).then((data)=>{
-    setScore(data.results);
-    console.log(data.results);
-  }).catch(err=>console.log(err))
+  const getScore = async() =>{
+  var results 
+   await getMatchScore(matchId).then((data)=>{
+      results = data.results;
+    }).catch(err=>console.log(err))
+    return results;
+  }
+
+    var score  = await getScore();
+
   console.log(score);
 
   return (

@@ -2,14 +2,21 @@
 export const getMatches = () => {
     var myCurrentDate = new Date();
     var month
+    var currentDate
     if ((myCurrentDate.getMonth()+1)<10) {
        month = '0'+(myCurrentDate.getMonth()+1);
     }
     else{
         month = (myCurrentDate.getMonth()+1);
     }
-    var date = myCurrentDate.getFullYear() + '-' + month + '-' + myCurrentDate.getDate()
-
+    if ((myCurrentDate.getDate())<10) {
+        currentDate = '0'+(myCurrentDate.getDate());
+     }
+     else{
+         currentDate = (myCurrentDate.getDate());
+     }
+    var date = myCurrentDate.getFullYear() + '-' + month + '-' + currentDate
+    console.log(date);
     return fetch(`https://cricket-live-data.p.rapidapi.com/fixtures-by-date/${date}`, {
         "method": "GET",
         "headers": {
