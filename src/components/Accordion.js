@@ -1,14 +1,17 @@
 import React from 'react';
 
 export const Accordion = ({data}) => {
-const stats = ""
-const scorecard = ""
-const homeTeam = ""
-const awayTeam = ""
-const homeTeamSheet = ""
-const awayTeamSheet = ""
 
+  
 
+const stats = data.live_details.stats?data.live_details.stats:"";
+const scorecard = data.live_details.scorecard?data.live_details.scorecard:[];
+const homeTeam = data.fixture.home.name?data.fixture.home.name:"";
+const awayTeam = data.fixture.away.name?data.fixture.away.name:"";
+const homeTeamSheet = data.live_details.teamsheets.home?data.live_details.teamsheets.home:[];
+const awayTeamSheet = data.live_details.teamsheets.away?data.live_details.teamsheets.away:[];
+
+console.log(data.live_details.teamsheets.home);
     return(
         <div>
             <div className="accordion" id="accordionPanelsStayOpenExample">
@@ -28,6 +31,7 @@ const awayTeamSheet = ""
                     </div>
                     {scorecard.map((card, index) => {
                         <div key ={index} className="accordion-item">
+                            console.log(card);
                         <h2 className="accordion-header" id="panelsStayOpen-headingTwo">
                             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
                              Innings {index} Scorecard
@@ -78,7 +82,7 @@ const awayTeamSheet = ""
                                         <th scope="col">Wickets</th>
                                         <th scope="col">Economy</th>
                                     </tr>
-                                    {card.batting.map((player, index) => {
+                                    {card.bowling.map((player, index) => {
                                         <tr key={index}>
                                         <td>{player.player_name}</td>
                                         <td>{player.overs}</td>

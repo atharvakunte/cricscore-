@@ -1,14 +1,16 @@
 import React from 'react'
 
-export const Scorecard = ({data}) => {
+export const Scorecard = (data) => {
  console.log(data);
-const toss = data?data.live_details.match_summary.toss:"";
-const homeTeam = data?data.fixture.home.name:"";
-const awayTeam = data?data.fixture.away.name:"";
-const homeScores = data?data.live_details.match_summary.home_scores:"";
-const awayScores = data?data.live_details.match_summary.home_scores:"";
-const last_18_balls = data?data.live_details.stats.last_18_balls:"";
-const status = data?data.live_details.match_summary.status:"";
+const toss = data.data.live_details.match_summary.toss?data.data.live_details.match_summary.toss:"";
+const homeTeam = data.data.fixture.home.name?data.data.fixture.home.name:"";
+const awayTeam = data.data.fixture.away.name?data.data.fixture.away.name:"";
+const homeScores = data.data.live_details.match_summary.home_scores?data.data.live_details.match_summary.home_scores:"";
+const awayScores = data.data.live_details.match_summary.away_scores?data.data.live_details.match_summary.away_scores:"";
+const last_18_balls = data.data.live_details.stats.last_18_balls?data.data.live_details.stats.last_18_balls:[];
+const status = data.data.live_details.match_summary.status?data.data.live_details.match_summary.status:"";
+
+// console.log(toss);
 
 const balls = (ball) => {
     var runs = ball.runs
@@ -41,9 +43,11 @@ const balls = (ball) => {
             style ="badge rounded-pill bg-success"
         }
     }
-
+    console.log(runs)
+    console.log(text)
+    console.log(style);
     return(
-        <span className={style}>{runs}{text}</span>
+            <span className={style}>{runs}{text}</span>
     )
 }
 
@@ -82,7 +86,9 @@ const balls = (ball) => {
                         <h4 className="card-title">
                         
                             {last_18_balls.map((ball, index) => {
-                                balls(ball)
+                               <div key={index}>
+                                   {balls(ball)}
+                               </div>
                             })}
                         </h4>
                     </div>

@@ -20,7 +20,7 @@ export const getMatches = () => {
     return fetch(`https://cricket-live-data.p.rapidapi.com/fixtures-by-date/${date}`, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "98c597f677msh0740186b754d713p19ce9ejsn024a29b91081",
+            "x-rapidapi-key": "c79c4e3060msha638ece42a95644p1d2a8fjsn0168a20222d4",
 		    "x-rapidapi-host": "cricket-live-data.p.rapidapi.com"
         }
     })
@@ -36,7 +36,7 @@ export const getMatchScore = (matchID) => {
     return fetch(`https://cricket-live-data.p.rapidapi.com/match/${matchID}`, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "98c597f677msh0740186b754d713p19ce9ejsn024a29b91081",
+            "x-rapidapi-key": "c79c4e3060msha638ece42a95644p1d2a8fjsn0168a20222d4",
 		    "x-rapidapi-host": "cricket-live-data.p.rapidapi.com"
         }
     })

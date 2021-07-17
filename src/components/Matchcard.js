@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export const MatchCard = ({match}) => {
 
     const matchTitle =match? match.match_title:"";
