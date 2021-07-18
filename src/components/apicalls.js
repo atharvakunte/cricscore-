@@ -17,7 +17,7 @@ export const getMatches = () => {
      }
     var date = myCurrentDate.getFullYear() + '-' + month + '-' + currentDate
     console.log(date);
-    return fetch(`https://cricket-live-data.p.rapidapi.com/fixtures-by-date/2021-07-17`, {
+    return fetch(`https://cricket-live-data.p.rapidapi.com/fixtures-by-date/${date}`, {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "c79c4e3060msha638ece42a95644p1d2a8fjsn0168a20222d4",
