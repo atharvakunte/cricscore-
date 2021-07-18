@@ -15,19 +15,19 @@ const status = data.data.live_details.match_summary.status?data.data.live_detail
 const balls = (ball) => {
     var runs = ball.runs
     var text = ""
-    var style = "badge rounded-pill bg-light"
+    var style = "badge rounded-pill bg-light text-dark border m-1"
 
     if (ball.isDismissal){
         text = 'W'
-        style = 'badge rounded-pill bg-danger'
+        style = 'badge rounded-pill bg-danger m-1'
     }
     if (ball.isWide) {
         text = 'WD'
-        style = 'badge rounded-pill bg-warning'
+        style = 'badge rounded-pill bg-warning text-dark m-1'
     }
     if (ball.isNoBall) {
         text = 'NB'
-        style = 'badge rounded-pill bg-warning'
+        style = 'badge rounded-pill bg-warning text-dark m-1'
     }
     if (ball.isBye) {
         text = 'B'
@@ -37,10 +37,10 @@ const balls = (ball) => {
     }
     if (ball.isBoundry) {
         if (runs === '4') {
-            style ="badge rounded-pill bg-primary"
+            style ="badge rounded-pill bg-primary m-1"
         }
         else{
-            style ="badge rounded-pill bg-success"
+            style ="badge rounded-pill bg-success m-1"
         }
     }
     console.log(runs)
@@ -86,10 +86,12 @@ const balls = (ball) => {
                         <h4 className="card-title">
                         
                             {last_18_balls.map((ball, index) => {
-                               <div key={index}>
-                                   {balls(ball)}
-                               </div>
-                            })}
+                               return(
+                                        <span>
+                                            {balls(ball)}
+                                        </span>
+                                    )
+                                })}
                         </h4>
                     </div>
                     <div className="card-footer text-muted">

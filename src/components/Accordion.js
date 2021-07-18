@@ -30,16 +30,27 @@ console.log(data.live_details.teamsheets.home);
                         </div>
                     </div>
                     {scorecard.map((card, index) => {
-                        <div key ={index} className="accordion-item">
-                            console.log(card);
-                        <h2 className="accordion-header" id="panelsStayOpen-headingTwo">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                             Innings {index} Scorecard
+                        const getNum = (index) =>{
+                            if (index === 0) {
+                                return('Two')
+                            } else if(index === 1) {
+                                return('Three')
+                            }else if(index === 2) {
+                                return('Four')
+                            }else if(index === 3) {
+                                return('Five')
+                            }
+                        }
+                        return(
+                            <div key ={index} className="accordion-item">
+                        <h2 className="accordion-header" id={"panelsStayOpen-heading"+getNum(index)}>
+                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={"#panelsStayOpen-collapse"+getNum(index)} aria-expanded="false" aria-controls={"panelsStayOpen-collapse"+getNum(index)}>
+                             Innings {index+1} Scorecard
                             </button>
                         </h2>
-                        <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                        <div id={"panelsStayOpen-collapse"+getNum(index)} className="accordion-collapse collapse" aria-labelledby={"panelsStayOpen-heading"+getNum(index)}>
                             <div className="accordion-body">
-                                <h6>Batting</h6><br/>
+                                <h5>Batting</h5>
                                 <table className="table table-borderless">
                                     <tr>
                                         <th scope="col">Player</th>
@@ -51,28 +62,32 @@ console.log(data.live_details.teamsheets.home);
                                         <th scope="col">SR</th>
                                     </tr>
                                     {card.batting.map((player, index) => {
-                                        <tr key={index}>
-                                        <td>{player.player_name}</td>
-                                        <td>{player.how_out}</td>
-                                        <td>{player.runs}</td>
-                                        <td>{player.balls}</td>
-                                        <td>{player.fours}</td>
-                                        <td>{player.sixes}</td>
-                                        <td>{player.strike_rate}</td>
-                                        </tr>
+                                        return(
+                                            <tr key={index}>
+                                            <td>{player.player_name}</td>
+                                            <td>{player.how_out}</td>
+                                            <td>{player.runs}</td>
+                                            <td>{player.balls}</td>
+                                            <td>{player.fours}</td>
+                                            <td>{player.sixes}</td>
+                                            <td>{player.strike_rate}</td>
+                                            </tr>
+                                        )
                                     })}
                                 </table>
                                 <br/>
-                                <h6>Yet to bat</h6><br/>
+                                <h5>Yet to bat</h5>
                                 <table className="table table-borderless">
-                                    {card.batting.map((player, index) => {
-                                        <tr key={index}>
-                                        <td>{player.player_name}</td>
-                                        </tr>
+                                    {card.still_to_bat.map((player, index) => {
+                                        return(
+                                            <tr key={index}>
+                                            <td>{player.player_name}</td>
+                                            </tr>
+                                        )
                                     })}
                                 </table>
                                 <br/>
-                                <h6>Bowling</h6>
+                                <h5>Bowling</h5>
                                 <table className="table table-borderless">
                                     <tr>
                                         <th scope="col">Player</th>
@@ -83,28 +98,31 @@ console.log(data.live_details.teamsheets.home);
                                         <th scope="col">Economy</th>
                                     </tr>
                                     {card.bowling.map((player, index) => {
-                                        <tr key={index}>
-                                        <td>{player.player_name}</td>
-                                        <td>{player.overs}</td>
-                                        <td>{player.maidens}</td>
-                                        <td>{player.runs_conceded}</td>
-                                        <td>{player.wickets}</td>
-                                        <td>{player.economy}</td>
-                                        </tr>
+                                        return(
+                                            <tr key={index}>
+                                            <td>{player.player_name}</td>
+                                            <td>{player.overs}</td>
+                                            <td>{player.maidens}</td>
+                                            <td>{player.runs_conceded}</td>
+                                            <td>{player.wickets}</td>
+                                            <td>{player.economy}</td>
+                                            </tr>
+                                        )
                                     })}
                                 </table>
                             </div>
                         </div>
                     </div>
+                        )
                     })}
                     
                     <div className="accordion-item">
-                        <h2 className="accordion-header" id="panelsStayOpen-headingThree">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                        <h2 className="accordion-header" id="panelsStayOpen-headingSix">
+                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
                              Playing 11
                             </button>
                         </h2>
-                        <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                        <div id="panelsStayOpen-collapseSix" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSix">
                             <div className="accordion-body">
                                 <div className ="col-lg-6 p-3">
                                     <ul className="list-group">
