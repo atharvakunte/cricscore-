@@ -31,7 +31,7 @@ export const Home = () => {
               {matches.map((match,index) => {
                   return(
                       <div className="col-lg-3 col-md-4 col-sm-6">
-                      <div key={index}>
+                      <div className="h-100" key={index}>
                           <MatchCard match={match}/>
                       </div>
                       </div>
