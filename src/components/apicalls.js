@@ -36,7 +36,7 @@ export const getMatchScore = (matchID) => {
     return fetch(`https://cricket-live-data.p.rapidapi.com/match/${matchID}`, {
         "method": "GET",
         "headers": {
-            'x-rapidapi-key': 'bcf7f185f6mshccbbeb13565b63bp1d1864jsnfe9471784122',
+            'x-rapidapi-key': 'a14daee039mshaae98a51a98d1c5p16d0d6jsn5f0341fb10ed',
             'x-rapidapi-host': 'cricket-live-data.p.rapidapi.com'
         }
     })
