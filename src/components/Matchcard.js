@@ -8,14 +8,7 @@ export const MatchCard = ({match}) => {
     const matchSub = match.match_subtitle?match.match_subtitle:"";
     const matchStatus = match.status?match.status:false;
     const matchId = match.id?match.id:'';
-
-    let matchStarted = ""
-
-    if (matchStatus ==="Fixture") {
-        matchStarted = false;
-    }else{
-        matchStarted = true;
-    }
+console.log(matchStatus)
 
     return(
         <div className="p-3 m-1 h-100">
@@ -26,15 +19,8 @@ export const MatchCard = ({match}) => {
             <div className="card-body">
                 <h5 className="card-title text-center">{matchTitle}</h5>
                 <h6 className="card-title">{matchDate}</h6>
-                {
-                    (!matchStarted) && <p className="text-danger">Not Started</p>
-                }
-                {
-                   matchStarted && <p className="text-success">{matchStatus}</p>
-                }
-                {
-                    matchStarted && <a href={`/score/${matchId}`} className="btn btn-success">See Score</a>
-                }
+                <p className="text-success">{matchStatus}</p>
+                <a href={`/score/${matchId}`} className="btn btn-success">See Score</a>
             </div>
         </div>
         </div>

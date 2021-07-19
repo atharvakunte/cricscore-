@@ -48,7 +48,7 @@ export  class MatchScoreClass extends Component {
             ) 
         }else{
             return(
-                <div>
+                <div className="container p-3">
                     <Scorecard data = {match}/> 
                     <Accordion data = {match}/>
                 </div>
