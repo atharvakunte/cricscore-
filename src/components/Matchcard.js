@@ -8,7 +8,7 @@ export const MatchCard = ({match}) => {
     const matchSub = match.match_subtitle?match.match_subtitle:"";
     const matchStatus = match.status?match.status:false;
     const matchId = match.id?match.id:'';
-console.log(matchStatus)
+
 
     return(
         <div className="p-3 m-1 h-100">

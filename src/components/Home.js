@@ -21,7 +21,7 @@ export const Home = () => {
         loadMatches();
     },[])
     
-    console.log(matches);
+    
     return(
         <div className="bg-light">
           <div className="container-fluid bg-dark text-white text-center">
